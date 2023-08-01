@@ -35,14 +35,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,17 +49,33 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            BlocBuilder<CounterCubit, CounterState>(
+              builder: (context, state) {
+                return Text(
+                  'COUNTER VALUE :  ${state.counterValue.toString()}',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                );
+              },
             ),
+            const SizedBox(height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FloatingActionButton(
+                  tooltip: 'Decreament',
+                  onPressed: () => BlocProvider.of<CounterCubit>(context).decreament(),
+                  child: const Icon(Icons.remove),
+                ),
+                const SizedBox(width: 25),
+                FloatingActionButton(
+                  tooltip: 'Increament',
+                  onPressed: () => BlocProvider.of<CounterCubit>(context).increament(),
+                  child: const Icon(Icons.add),
+                ),
+              ],
+            )
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
