@@ -37,6 +37,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final blocProvider = BlocProvider.of<CounterCubit>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -67,13 +68,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   FloatingActionButton(
                     tooltip: 'Decreament',
-                    onPressed: () => BlocProvider.of<CounterCubit>(context).decreament(),
+                    onPressed: () => blocProvider.decreament(),
                     child: const Icon(Icons.remove),
                   ),
                   const SizedBox(width: 25),
                   FloatingActionButton(
                     tooltip: 'Increament',
-                    onPressed: () => BlocProvider.of<CounterCubit>(context).increament(),
+                    onPressed: () => blocProvider.increament(),
                     child: const Icon(Icons.add),
                   ),
                 ],
