@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         listener: (context, state) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(state.wasIncreamented ? 'Increamented' : 'decreamented'),
-            duration: const Duration(seconds: 1),
+            duration: const Duration(microseconds: 200),
           ));
         },
         child: Center(
