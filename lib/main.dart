@@ -42,36 +42,44 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            BlocBuilder<CounterCubit, CounterState>(
-              builder: (context, state) {
-                return Text(
-                  'COUNTER VALUE :  ${state.counterValue.toString()}',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                );
-              },
-            ),
-            const SizedBox(height: 24),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FloatingActionButton(
-                  tooltip: 'Decreament',
-                  onPressed: () => BlocProvider.of<CounterCubit>(context).decreament(),
-                  child: const Icon(Icons.remove),
-                ),
-                const SizedBox(width: 25),
-                FloatingActionButton(
-                  tooltip: 'Increament',
-                  onPressed: () => BlocProvider.of<CounterCubit>(context).increament(),
-                  child: const Icon(Icons.add),
-                ),
-              ],
-            )
-          ],
+      body: BlocListener<CounterCubit, CounterState>(
+        listener: (context, state) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(state.wasIncreamented ? 'Increamented' : 'decreamented'),
+            duration: const Duration(seconds: 1),
+          ));
+        },
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              BlocBuilder<CounterCubit, CounterState>(
+                builder: (context, state) {
+                  return Text(
+                    'COUNTER VALUE :  ${state.counterValue.toString()}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  );
+                },
+              ),
+              const SizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FloatingActionButton(
+                    tooltip: 'Decreament',
+                    onPressed: () => BlocProvider.of<CounterCubit>(context).decreament(),
+                    child: const Icon(Icons.remove),
+                  ),
+                  const SizedBox(width: 25),
+                  FloatingActionButton(
+                    tooltip: 'Increament',
+                    onPressed: () => BlocProvider.of<CounterCubit>(context).increament(),
+                    child: const Icon(Icons.add),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
