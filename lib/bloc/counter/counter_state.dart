@@ -1,6 +1,6 @@
 part of 'counter_bloc.dart';
 
-abstract class CounterState extends Equatable {
+class CounterState extends Equatable {
   final int counterValue;
   const CounterState({required this.counterValue});
 
