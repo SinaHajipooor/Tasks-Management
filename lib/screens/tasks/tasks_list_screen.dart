@@ -11,6 +11,10 @@ class TasksListScreen extends StatefulWidget {
 class _TasksListScreenState extends State<TasksListScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('tasks list screen'),
+      ),
+    );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:bloc_app/screens/root/home_screen.dart';
+import 'package:bloc_app/screens/root/splash_screen.dart';
 import 'package:bloc_app/screens/tasks/tasks_list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
       routes: {
         TasksListScreen.routeName: (context) => const TasksListScreen(),
       },
