@@ -1,8 +1,9 @@
 part of 'counter_bloc.dart';
 
-abstract class CounterEvent extends Equatable {
-  const CounterEvent();
+abstract class CounterEvent {}
 
-  @override
-  List<Object> get props => [];
-}
+// define the events that can happen to our state (the state that we had define in counter_state)
+
+class CounterIncreamentEvent extends CounterEvent {}
+
+class CounterDecreamentEvent extends CounterEvent {}
