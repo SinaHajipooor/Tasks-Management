@@ -1,6 +1,4 @@
-import 'package:bloc_app/screens/root/splash_screen.dart';
-import 'package:bloc_app/screens/tasks/tasks_list_screen.dart';
-import 'package:flutter/material.dart';
+import 'app/app_imports.dart';
 
 void main() {
   runApp(const MyApp());
