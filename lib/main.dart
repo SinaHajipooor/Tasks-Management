@@ -1,4 +1,4 @@
-import 'app/app_imports.dart';
+import 'app/imports/app_imports.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,9 +17,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const SplashScreen(),
-      routes: {
-        TasksListScreen.routeName: (context) => const TasksListScreen(),
-      },
+      routes: appRoutes,
     );
   }
 }
