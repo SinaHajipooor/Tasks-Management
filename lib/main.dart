@@ -12,6 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tasks Management',
       debugShowCheckedModeBanner: false,
+      locale: const Locale('fa', 'IR'),
+      localizationsDelegates: appLocalizations,
+      supportedLocales: appSupportedLocales,
       theme: ThemeData(
         fontFamily: 'Avenir',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
