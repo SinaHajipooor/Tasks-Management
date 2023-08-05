@@ -15,7 +15,7 @@ class _TasksListScreenState extends State<TasksListScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 1,
-        title: const Text('Your Tasks'),
+        title: const Text('فعالیت‌های شما'),
       ),
     );
   }

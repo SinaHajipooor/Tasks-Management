@@ -81,16 +81,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Avenir
+    - family: YekanBakh
       fonts:
-        - asset: assets/fonts/AvenirLTProBook.otf
-          weight: 200
-        - asset: assets/fonts/AvenirLTProRoman.otf
-          weight: 300
-        - asset: assets/fonts/AvenirLTProMedium.otf
-          weight: 400
-        - asset: assets/fonts/AvenirLTProHeavy.otf
+        - asset: assets/fonts/YekanBakh-Black.ttf
+        - asset: assets/fonts/YekanBakh-Bold.ttf
           weight: 700
+        - asset: assets/fonts/YekanBakh-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

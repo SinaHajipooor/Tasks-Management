@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: appLocalizations,
       supportedLocales: appSupportedLocales,
       theme: ThemeData(
-        fontFamily: 'Avenir',
+        fontFamily: 'YekanBakh',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
