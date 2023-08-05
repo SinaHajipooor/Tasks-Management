@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Tasks Management',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Avenir',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
