@@ -1,6 +1,6 @@
 import 'app/imports/app_imports.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
