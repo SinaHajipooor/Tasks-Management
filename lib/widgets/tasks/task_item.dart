@@ -11,10 +11,12 @@ class TaskItem extends StatelessWidget {
     return ListTile(
       title: Text(task.title),
       trailing: Checkbox(
-          value: task.isDone,
-          onChanged: (value) {
-            context.read<TasksBloc>().add(UpdateTask(task: task));
-          }),
+        value: task.isDone,
+        onChanged: (value) {
+          context.read<TasksBloc>().add(UpdateTask(task: task));
+        },
+      ),
+      onLongPress: () => context.read<TasksBloc>().add(DeleteTask(task: task)),
     );
   }
 }
