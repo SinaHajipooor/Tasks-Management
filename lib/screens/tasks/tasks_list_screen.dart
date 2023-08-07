@@ -24,7 +24,7 @@ class TasksListScreen extends StatelessWidget {
       isScrollControlled: true,
       context: context,
       builder: (BuildContext context) {
-        return TaskModal(titleController: titleController);
+        return TaskModal();
       },
     );
   }
