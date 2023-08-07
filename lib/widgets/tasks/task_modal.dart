@@ -51,14 +51,21 @@ class _TaskModalState extends State<TaskModal> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('انصراف')),
+                  TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('انصراف', style: TextStyle(fontSize: 11))),
                   ElevatedButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                    ),
                     onPressed: () {
                       var task = Task(title: titleController.text);
                       context.read<TasksBloc>().add(AddTask(task: task));
                       Navigator.of(context).pop();
                     },
-                    child: const Text('ذخیره'),
+                    child: const Text('ذخیره', style: TextStyle(fontSize: 12)),
                   ),
                 ],
               ),
