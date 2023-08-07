@@ -9,19 +9,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Tasks Management',
-      debugShowCheckedModeBanner: false,
-      locale: const Locale('fa', 'IR'),
-      localizationsDelegates: appLocalizations,
-      supportedLocales: appSupportedLocales,
-      theme: ThemeData(
-        fontFamily: 'YekanBakh',
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return BlocProvider(
+      create: (context) => TasksBloc(),
+      child: MaterialApp(
+        title: 'Tasks Management',
+        debugShowCheckedModeBanner: false,
+        locale: const Locale('fa', 'IR'),
+        localizationsDelegates: appLocalizations,
+        supportedLocales: appSupportedLocales,
+        theme: ThemeData(
+          fontFamily: 'YekanBakh',
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const SplashScreen(),
+        routes: appRoutes,
       ),
-      home: const SplashScreen(),
-      routes: appRoutes,
     );
   }
 }

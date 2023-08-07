@@ -4,3 +4,4 @@ export 'package:flutter/material.dart';
 export 'package:bloc_app/app/routes/app_routes.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
 export '../localization/app_localizations.dart';
+export '../../blocs/exports/bloc_exports.dart';
