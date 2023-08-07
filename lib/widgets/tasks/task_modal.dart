@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 class TaskModal extends StatefulWidget {
   const TaskModal({super.key});
-
   @override
   State<TaskModal> createState() => _TaskModalState();
 }
@@ -12,7 +11,6 @@ class TaskModal extends StatefulWidget {
 class _TaskModalState extends State<TaskModal> {
   final ScrollController _scrollController = ScrollController();
   TextEditingController titleController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     final keyboardOffset = MediaQuery.of(context).viewInsets.bottom;
@@ -30,9 +28,7 @@ class _TaskModalState extends State<TaskModal> {
       });
       return SingleChildScrollView(
         controller: _scrollController,
-        padding: EdgeInsets.only(
-          bottom: keyboardOffset + MediaQuery.of(context).padding.bottom,
-        ),
+        padding: EdgeInsets.only(bottom: keyboardOffset + MediaQuery.of(context).padding.bottom),
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
@@ -61,7 +57,7 @@ class _TaskModalState extends State<TaskModal> {
                       ),
                     ),
                     onPressed: () {
-                      var task = Task(title: titleController.text);
+                      var task = Task(id: DateTime.now().toString(), title: titleController.text);
                       context.read<TasksBloc>().add(AddTask(task: task));
                       Navigator.of(context).pop();
                     },
