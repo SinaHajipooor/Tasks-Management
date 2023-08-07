@@ -7,6 +7,9 @@ class TaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile();
+    return ListTile(
+      title: Text(task.title),
+      trailing: Checkbox(value: task.isDone, onChanged: (value) {}),
+    );
   }
 }
