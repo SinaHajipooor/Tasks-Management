@@ -1,14 +1,16 @@
+import 'package:bloc_app/models/task.dart';
 import 'package:flutter/material.dart';
 
-class TasksListScreen extends StatefulWidget {
+// ignore: must_be_immutable
+class TasksListScreen extends StatelessWidget {
   static const routeName = '/tasks-list-screen';
-  const TasksListScreen({super.key});
+  List<Task> tasksList = [
+    Task(title: 'فعالیت اول'),
+    Task(title: 'فعالیت دوم'),
+    Task(title: 'فعالیت سوم'),
+  ];
+  TasksListScreen({super.key});
 
-  @override
-  State<TasksListScreen> createState() => _TasksListScreenState();
-}
-
-class _TasksListScreenState extends State<TasksListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
