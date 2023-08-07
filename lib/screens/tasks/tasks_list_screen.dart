@@ -15,17 +15,18 @@ class TasksListScreen extends StatelessWidget {
 // methods
   void _addTask(BuildContext context) {
     showModalBottomSheet(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
         ),
-        isScrollControlled: true,
-        context: context,
-        builder: (BuildContext context) {
-          return TaskModal(titleController: titleController);
-        });
+      ),
+      isScrollControlled: true,
+      context: context,
+      builder: (BuildContext context) {
+        return TaskModal(titleController: titleController);
+      },
+    );
   }
 
   @override

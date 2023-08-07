@@ -1,3 +1,5 @@
+import 'package:bloc_app/blocs/exports/bloc_exports.dart';
+import 'package:bloc_app/models/task.dart';
 import 'package:flutter/material.dart';
 
 class TaskModal extends StatefulWidget {
@@ -44,7 +46,22 @@ class _TaskModalState extends State<TaskModal> {
                   border: OutlineInputBorder(),
                 ),
                 controller: widget.titleController,
-              )
+              ),
+              const SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('انصراف')),
+                  ElevatedButton(
+                    onPressed: () {
+                      var task = Task(title: widget.titleController.text);
+                      context.read<TasksBloc>().add(AddTask(task: task));
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('ذخیره'),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
