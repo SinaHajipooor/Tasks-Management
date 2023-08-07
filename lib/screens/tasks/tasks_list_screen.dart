@@ -35,12 +35,16 @@ class TasksListScreen extends StatelessWidget {
       builder: (context, state) {
         List<Task> tasksList = state.allTasks;
         return Scaffold(
-          resizeToAvoidBottomInset: true,
+          appBar: AppBar(
+            title: const Text('فعالیت‌های شما', style: TextStyle(fontSize: 15)),
+            centerTitle: true,
+            backgroundColor: Colors.white,
+            elevation: 1,
+          ),
           body: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Center(child: Chip(label: Text('فعالیت‌ها'))),
                 Expanded(child: TasksList(tasksList: tasksList)),
               ],
             ),
