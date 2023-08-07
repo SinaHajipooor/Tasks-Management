@@ -1,4 +1,5 @@
 import 'package:bloc_app/models/task.dart';
+import 'package:bloc_app/widgets/tasks/tasks_list.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -18,6 +19,13 @@ class TasksListScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 1,
         title: const Text('فعالیت‌های شما'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Center(child: Chip(label: Text('فعالیت‌ها'))),
+          Expanded(child: TasksList(tasksList: tasksList)),
+        ],
       ),
     );
   }
