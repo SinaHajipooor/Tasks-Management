@@ -40,6 +40,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: any
+  hydrated_bloc: ^9.1.2
   
 
 dev_dependencies:
