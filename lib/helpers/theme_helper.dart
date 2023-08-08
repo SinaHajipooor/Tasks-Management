@@ -64,13 +64,13 @@ class ThemeHelper with ChangeNotifier {
   }
 }
 
-class MyThemeModel with ChangeNotifier {
-  ThemeModeType _themeMode = ThemeModeType.light;
+// class MyThemeModel with ChangeNotifier {
+//   ThemeModeType _themeMode = ThemeModeType.light;
 
-  ThemeMode get themeMode => _themeMode == ThemeModeType.light ? ThemeMode.light : ThemeMode.dark;
+//   ThemeMode get themeMode => _themeMode == ThemeModeType.light ? ThemeMode.light : ThemeMode.dark;
 
-  void toggleTheme() {
-    _themeMode = _themeMode == ThemeModeType.light ? ThemeModeType.dark : ThemeModeType.light;
-    notifyListeners();
-  }
-}
+//   void toggleTheme() {
+//     _themeMode = _themeMode == ThemeModeType.light ? ThemeModeType.dark : ThemeModeType.light;
+//     notifyListeners();
+//   }
+// }

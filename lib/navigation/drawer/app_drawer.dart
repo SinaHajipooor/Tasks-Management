@@ -56,14 +56,20 @@ class AppDrawer extends StatelessWidget {
                           child: child,
                         );
                       },
-                      child: InkWell(
-                        onTap: () {},
-                        child: Image.asset(
-                          'assets/images/icons/night.png',
-                          color: Colors.white,
-                          width: 30,
-                          height: 30,
-                        ),
+                      child: BlocBuilder<ThemeBloc, ThemeState>(
+                        builder: (context, state) {
+                          return InkWell(
+                            onTap: () {
+                              context.read<ThemeBloc>().add(state.isLight ? swithToDarkMode() : swithToLightMode());
+                            },
+                            child: Image.asset(
+                              state.isLight ? 'assets/images/icons/night.png' : 'assets/images/icons/sun.png',
+                              color: Colors.white,
+                              width: 30,
+                              height: 30,
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),

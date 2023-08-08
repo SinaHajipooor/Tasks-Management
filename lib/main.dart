@@ -1,3 +1,5 @@
+import 'package:bloc_app/helpers/theme_helper.dart';
+
 import 'app/imports/app_imports.dart';
 
 void main() async {
@@ -9,21 +11,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TasksBloc(),
-      child: MaterialApp(
-        title: 'Tasks Management',
-        debugShowCheckedModeBanner: false,
-        locale: const Locale('fa', 'IR'),
-        localizationsDelegates: appLocalizations,
-        supportedLocales: appSupportedLocales,
-        theme: ThemeData(
-          fontFamily: 'YekanBakh',
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const SplashScreen(),
-        routes: appRoutes,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => TasksBloc()),
+        BlocProvider(create: (context) => ThemeBloc()),
+      ],
+      child: BlocBuilder<ThemeBloc, ThemeState>(
+        builder: (context, state) {
+          return MaterialApp(
+            title: 'Tasks Management',
+            debugShowCheckedModeBanner: false,
+            locale: const Locale('fa', 'IR'),
+            localizationsDelegates: appLocalizations,
+            supportedLocales: appSupportedLocales,
+            theme: state.isLight ? ThemeHelper().getLightTheme() : ThemeHelper().getDarkTheme(),
+            home: const SplashScreen(),
+            routes: appRoutes,
+          );
+        },
       ),
     );
   }
