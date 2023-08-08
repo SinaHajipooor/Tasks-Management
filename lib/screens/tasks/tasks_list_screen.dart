@@ -1,4 +1,5 @@
 import 'package:bloc_app/models/task.dart';
+import 'package:bloc_app/navigation/drawer/app_drawer.dart';
 import 'package:bloc_app/widgets/tasks/task_counter.dart';
 import 'package:bloc_app/widgets/tasks/task_modal.dart';
 import 'package:bloc_app/widgets/tasks/tasks_list.dart';
@@ -37,17 +38,16 @@ class TasksListScreen extends StatelessWidget {
         List<Task> tasksList = state.allTasks;
         return Scaffold(
           appBar: AppBar(
-            centerTitle: true,
             backgroundColor: Colors.white,
             elevation: 1,
             title: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('فعالیت‌های شما', style: TextStyle(fontSize: 15)),
+                const Text('فعالیت‌های شما', style: TextStyle(fontSize: 14)),
                 Visibility(visible: state.allTasks.isNotEmpty, child: const TaskCounter()),
               ],
             ),
           ),
+          drawer: const AppDrawer(),
           body: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

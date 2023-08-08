@@ -9,7 +9,7 @@ class TaskCounter extends StatelessWidget {
       builder: (context, state) {
         return Row(
           children: [
-            const SizedBox(width: 10),
+            const SizedBox(width: 7),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
               decoration: BoxDecoration(
@@ -20,7 +20,7 @@ class TaskCounter extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   '${state.allTasks.length}',
-                  style: const TextStyle(fontSize: 16, color: Colors.white),
+                  style: const TextStyle(fontSize: 12, color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
               ),
