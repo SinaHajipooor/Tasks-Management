@@ -75,14 +75,19 @@ class AppDrawer extends StatelessWidget {
                     onTap: () => Navigator.of(context).pushReplacementNamed(TasksListScreen.routeName),
                     leading: const Icon(Icons.folder_special, size: 20),
                     title: const Text('فعالیت‌ها', style: TextStyle(fontSize: 13)),
-                    trailing: Text('${state.allTasks.length}', style: const TextStyle(fontSize: 14)),
+                    trailing: Visibility(visible: state.allTasks.isNotEmpty, child: Text('${state.allTasks.length}', style: const TextStyle(fontSize: 14))),
                   );
                 },
               ),
-              ListTile(
-                onTap: () => Navigator.of(context).pushReplacementNamed(DeletedTasksScreen.routeName),
-                leading: const Icon(Icons.delete, size: 20),
-                title: const Text('حذف شده‌ها', style: TextStyle(fontSize: 13)),
+              BlocBuilder<TasksBloc, TasksState>(
+                builder: (context, state) {
+                  return ListTile(
+                    onTap: () => Navigator.of(context).pushReplacementNamed(DeletedTasksScreen.routeName),
+                    leading: const Icon(Icons.delete, size: 20),
+                    title: const Text('حذف شده‌ها', style: TextStyle(fontSize: 13)),
+                    trailing: Visibility(visible: state.removedTasks.isNotEmpty, child: Text('${state.removedTasks.length}', style: const TextStyle(fontSize: 14))),
+                  );
+                },
               ),
             ],
           ),
