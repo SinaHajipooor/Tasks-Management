@@ -9,7 +9,10 @@ class TaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(task.title),
+      title: Text(
+        task.title,
+        style: TextStyle(decoration: task.isDone! ? TextDecoration.lineThrough : null),
+      ),
       onLongPress: () => context.read<TasksBloc>().add(DeleteTask(task: task)),
       trailing: Checkbox(
         value: task.isDone,
