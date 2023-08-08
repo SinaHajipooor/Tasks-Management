@@ -20,6 +20,7 @@ class TasksBloc extends Bloc<TasksEvent, TasksState> {
     final state = this.state;
     emit(TasksState(
       allTasks: List.from(state.allTasks)..add(event.task),
+      removedTasks: state.removedTasks,
     ));
   }
 
@@ -30,18 +31,24 @@ class TasksBloc extends Bloc<TasksEvent, TasksState> {
     final int index = state.allTasks.indexOf(task);
     List<Task> allTasks = List.from(state.allTasks)..remove(task);
     allTasks.insert(index, task.copywith(isDone: task.isDone == false ? true : false));
-    emit(TasksState(allTasks: allTasks));
+    emit(TasksState(allTasks: allTasks, removedTasks: state.removedTasks));
   }
 
   // delete task
   void _onDeleteTask(DeleteTask event, Emitter<TasksState> emit) {
     final state = this.state;
-    emit(TasksState(allTasks: List.from(state.allTasks)..remove(event.task)));
+    emit(TasksState(
+      allTasks: state.allTasks,
+      removedTasks: List.from(state.removedTasks)..remove(event.task),
+    ));
   }
 
 // remove task
   void _onRemoveTask(RemoveTask event, Emitter<TasksState> emit) {
     final state = this.state;
-    emit(TasksState(allTasks: List.from(state.allTasks)..remove(event.task), removedTasks: List.from(state.removedTasks)..add(event.task.copywith(isDeleted: true))));
+    emit(TasksState(
+      allTasks: List.from(state.allTasks)..remove(event.task),
+      removedTasks: List.from(state.removedTasks)..add(event.task.copywith(isDeleted: true)),
+    ));
   }
 }
