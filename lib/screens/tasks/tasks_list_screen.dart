@@ -33,16 +33,16 @@ class TasksListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).textTheme;
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
         List<Task> tasksList = state.allTasks;
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.white,
             elevation: 1,
             title: Row(
               children: [
-                const Text('فعالیت‌های شما', style: TextStyle(fontSize: 14)),
+                Text('فعالیت‌های شما', style: theme.bodyMedium!.copyWith(fontSize: 13)),
                 Visibility(visible: state.allTasks.isNotEmpty, child: TaskCounter(count: state.allTasks.length)),
               ],
             ),
@@ -57,6 +57,7 @@ class TasksListScreen extends StatelessWidget {
             ),
           ),
           floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.blue,
             onPressed: () => _addTask(context),
             tooltip: 'افزودن',
             child: const Icon(Icons.add),

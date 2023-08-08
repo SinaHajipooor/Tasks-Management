@@ -23,7 +23,7 @@ class TaskItem extends StatelessWidget {
       child: ListTile(
         title: Text(
           task.title,
-          style: TextStyle(decoration: task.isDone! ? TextDecoration.lineThrough : null),
+          style: TextStyle(decoration: task.isDone! ? TextDecoration.lineThrough : null, fontWeight: FontWeight.normal),
         ),
         trailing: Checkbox(
           value: task.isDone,

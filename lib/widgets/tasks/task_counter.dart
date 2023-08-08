@@ -10,9 +10,9 @@ class TaskCounter extends StatelessWidget {
       children: [
         const SizedBox(width: 7),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 0),
           decoration: BoxDecoration(
-            color: Colors.purple[200],
+            color: Colors.blue[200],
             borderRadius: BorderRadius.circular(50),
           ),
           child: Align(

@@ -9,19 +9,19 @@ class DeletedTasksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).textTheme;
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
             title: Row(
               children: [
-                const Text('فعالیت‌های حذف شده', style: TextStyle(fontSize: 14)),
+                Text('فعالیت‌های حذف شده', style: theme.bodyMedium!.copyWith(fontSize: 13)),
                 Visibility(visible: state.removedTasks.isNotEmpty, child: TaskCounter(count: state.removedTasks.length)),
               ],
             ),
             elevation: 1,
             centerTitle: true,
-            backgroundColor: Colors.white,
           ),
           drawer: const AppDrawer(),
           body: SafeArea(

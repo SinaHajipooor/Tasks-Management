@@ -36,6 +36,7 @@ class _TaskModalState extends State<TaskModal> {
               const Text('افزودن فعالیت', style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal)),
               const SizedBox(height: 40),
               TextField(
+                style: const TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
                 autofocus: true,
                 decoration: const InputDecoration(
                   label: Text('عنوان'),
