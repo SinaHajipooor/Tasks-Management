@@ -1,5 +1,7 @@
 import 'package:bloc_app/navigation/drawer/app_drawer.dart';
-import 'package:flutter/material.dart';
+import 'package:bloc_app/widgets/tasks/task_counter.dart';
+import '../../app/imports/app_imports.dart';
+import '../../widgets/tasks/tasks_list.dart';
 
 class DeletedTasksScreen extends StatelessWidget {
   static const routeName = '/deleted-tasks-screen';
@@ -7,18 +9,31 @@ class DeletedTasksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Row(
-          children: [
-            Text('فعالیت‌های حذف شده', style: TextStyle(fontSize: 14)),
-          ],
-        ),
-        elevation: 1,
-        centerTitle: true,
-        backgroundColor: Colors.white,
-      ),
-      drawer: const AppDrawer(),
+    return BlocBuilder<TasksBloc, TasksState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Row(
+              children: [
+                const Text('فعالیت‌های حذف شده', style: TextStyle(fontSize: 14)),
+                Visibility(visible: state.removedTasks.isNotEmpty, child: TaskCounter(count: state.removedTasks.length)),
+              ],
+            ),
+            elevation: 1,
+            centerTitle: true,
+            backgroundColor: Colors.white,
+          ),
+          drawer: const AppDrawer(),
+          body: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(child: TasksList(tasksList: state.removedTasks)),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
