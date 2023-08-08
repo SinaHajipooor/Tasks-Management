@@ -43,7 +43,7 @@ class TasksListScreen extends StatelessWidget {
             title: Row(
               children: [
                 const Text('فعالیت‌های شما', style: TextStyle(fontSize: 14)),
-                Visibility(visible: state.allTasks.isNotEmpty, child: const TaskCounter()),
+                Visibility(visible: state.allTasks.isNotEmpty, child: TaskCounter(count: state.allTasks.length)),
               ],
             ),
           ),
