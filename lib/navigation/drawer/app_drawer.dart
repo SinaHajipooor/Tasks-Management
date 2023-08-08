@@ -1,6 +1,5 @@
 import 'package:bloc_app/app/imports/app_imports.dart';
 import 'package:bloc_app/screens/tasks/deleted_tasks_screen.dart';
-import 'package:flutter/material.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -70,10 +69,15 @@ class AppDrawer extends StatelessWidget {
                   ),
                 ],
               ),
-              ListTile(
-                onTap: () => Navigator.of(context).pushReplacementNamed(TasksListScreen.routeName),
-                leading: const Icon(Icons.folder_special, size: 20),
-                title: const Text('مدیریت فعالیت‌ها', style: TextStyle(fontSize: 13)),
+              BlocBuilder<TasksBloc, TasksState>(
+                builder: (context, state) {
+                  return ListTile(
+                    onTap: () => Navigator.of(context).pushReplacementNamed(TasksListScreen.routeName),
+                    leading: const Icon(Icons.folder_special, size: 20),
+                    title: const Text('فعالیت‌ها', style: TextStyle(fontSize: 13)),
+                    trailing: Text('${state.allTasks.length}', style: const TextStyle(fontSize: 14)),
+                  );
+                },
               ),
               ListTile(
                 onTap: () => Navigator.of(context).pushReplacementNamed(DeletedTasksScreen.routeName),
