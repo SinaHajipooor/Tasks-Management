@@ -4,5 +4,5 @@ import '../imports/app_imports.dart';
 
 final Map<String, WidgetBuilder> appRoutes = {
   TasksListScreen.routeName: (context) => TasksListScreen(),
-  DeletedTasksScreen.routeName: (context) => DeletedTasksScreen(),
+  DeletedTasksScreen.routeName: (context) => const DeletedTasksScreen(),
 };

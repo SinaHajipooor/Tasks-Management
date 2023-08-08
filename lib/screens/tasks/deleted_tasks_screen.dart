@@ -1,3 +1,4 @@
+import 'package:bloc_app/navigation/drawer/app_drawer.dart';
 import 'package:flutter/material.dart';
 
 class DeletedTasksScreen extends StatelessWidget {
@@ -8,11 +9,16 @@ class DeletedTasksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('فعالیت‌های حذف شده'),
+        title: const Row(
+          children: [
+            Text('فعالیت‌های حذف شده', style: TextStyle(fontSize: 14)),
+          ],
+        ),
         elevation: 1,
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
+      drawer: const AppDrawer(),
     );
   }
 }
