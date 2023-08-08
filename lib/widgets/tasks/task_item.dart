@@ -27,9 +27,11 @@ class TaskItem extends StatelessWidget {
         ),
         trailing: Checkbox(
           value: task.isDone,
-          onChanged: (value) {
-            context.read<TasksBloc>().add(UpdateTask(task: task));
-          },
+          onChanged: task.isDeleted == false
+              ? (value) {
+                  context.read<TasksBloc>().add(UpdateTask(task: task));
+                }
+              : null,
         ),
       ),
     );
