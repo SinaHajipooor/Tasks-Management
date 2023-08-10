@@ -14,7 +14,6 @@ class TasksBloc extends Bloc<TasksEvent, TasksState> {
     on<DeleteTask>(_onDeleteTask);
     on<RemoveTask>(_onRemoveTask);
   }
-
 // add task logic
   void _onAddTask(AddTask event, Emitter<TasksState> emit) {
     final state = this.state;
